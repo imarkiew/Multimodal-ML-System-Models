@@ -12,7 +12,6 @@ LOAD_IMAGES_PATH = '../data/original_data/HAM'
 EXTENSION = '.jpg'
 METADATA_PATH = '../data/original_data/HAM10000_metadata.tab'
 SAVE_IMAGES_PATH = '../data'
-SAVE_STATS_PATH = '../data/stats'
 SEPARATOR = '\t'
 RANDOM_STATE = 42
 TRAIN_SIZE = 0.75
