@@ -1,0 +1,6 @@
+Model number: 1 || Model: naive_bayes || Min: 87.93103448275862 || Max: 98.24561403508771 || Mean: 93.1568144499179 || Median: 92.98245614035088 || Standard deviation: 3.2564856901851194
+Model number: 2 || Model: logistic_regression || Min: 94.73684210526315 || Max: 100.0 || Mean: 98.07309221329184 || Median: 98.24561403508771 || Standard deviation: 1.4577470410877862
+Model number: 3 || Model: support_vector_machine || Min: 94.64285714285714 || Max: 100.0 || Mean: 97.71897415953677 || Median: 98.26073805202661 || Standard deviation: 2.2363135051492478
+Model number: 4 || Model: random_forest || Min: 89.65517241379311 || Max: 100.0 || Mean: 96.32443176907786 || Median: 97.35275689223057 || Standard deviation: 3.148236803520583
+Model number: 5 || Model: gradient_boosting || Min: 92.98245614035088 || Max: 100.0 || Mean: 97.19881600553106 || Median: 98.21428571428571 || Standard deviation: 2.830569604644789
+Model number: 6 || Model: mlp || Min: 94.73684210526315 || Max: 100.0 || Mean: 97.72534785238959 || Median: 98.26073805202661 || Standard deviation: 1.9315116452915768
