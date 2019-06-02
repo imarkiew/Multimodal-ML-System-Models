@@ -1,0 +1,11 @@
+Number of classes: 7
+Counts: 10015
+Unique counts: 7470
+class,counts,unique_counts
+akiec,327,228
+bcc,514,327
+bkl,1099,727
+df,115,73
+mel,1113,614
+nv,6705,5403
+vasc,142,98
