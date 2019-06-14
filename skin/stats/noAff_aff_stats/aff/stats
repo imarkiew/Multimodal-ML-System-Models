@@ -1,0 +1,4 @@
+Train acc = 1.0
+Train F1 macro = 1.0
+Val acc = 0.7967252396166135
+Val F1 macro = 0.6376495036522162
