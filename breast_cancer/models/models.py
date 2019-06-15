@@ -16,7 +16,7 @@ import numpy as np
 PATH_TO_DATA = '../data/data.csv'
 RANDOM_STATE = 42
 SAVE_STATS_PATH = './stats'
-SAVE_MODEL_PATH = '../trainer'
+SAVE_MODEL_PATH = '../model'
 
 
 def labels_to_y_bin(y):
