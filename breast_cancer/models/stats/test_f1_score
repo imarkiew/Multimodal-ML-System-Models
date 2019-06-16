@@ -1,6 +1,6 @@
-Model number: 1 || Model: naive_bayes || Min: 0.8421052631578947 || Max: 0.975609756097561 || Mean: 0.9075037751000018 || Median: 0.9023809523809524 || Standard deviation: 0.043695525297210776
-Model number: 2 || Model: logistic_regression || Min: 0.9268292682926829 || Max: 1.0 || Mean: 0.9734924686456166 || Median: 0.9761769710720363 || Standard deviation: 0.020463647554094026
-Model number: 3 || Model: support_vector_machine || Min: 0.923076923076923 || Max: 1.0 || Mean: 0.9688071737929933 || Median: 0.9766937669376694 || Standard deviation: 0.030924932463046124
-Model number: 4 || Model: random_forest || Min: 0.8571428571428572 || Max: 1.0 || Mean: 0.9490584058281166 || Median: 0.9628048780487806 || Standard deviation: 0.044013523882322755
-Model number: 5 || Model: gradient_boosting || Min: 0.9 || Max: 1.0 || Mean: 0.9607022038275582 || Median: 0.9761769710720363 || Standard deviation: 0.040042426957703645
-Model number: 6 || Model: mlp || Min: 0.9268292682926829 || Max: 1.0 || Mean: 0.9688552161269122 || Median: 0.9761769710720363 || Standard deviation: 0.026781762012979302
+Model number: 1 || Model: naive_bayes || Min: 0.7999999999999999 || Max: 0.9600000000000001 || Mean: 0.8972560297229094 || Median: 0.928921568627451 || Standard deviation: 0.05818364408034299
+Model number: 2 || Model: logistic_regression || Min: 0.9166666666666666 || Max: 1.0 || Mean: 0.9681890212599994 || Median: 0.9728937728937729 || Standard deviation: 0.02197500252957752
+Model number: 3 || Model: support_vector_machine || Min: 0.918918918918919 || Max: 1.0 || Mean: 0.9621539082909241 || Median: 0.9656177156177156 || Standard deviation: 0.02174133214988433
+Model number: 4 || Model: random_forest || Min: 0.8823529411764706 || Max: 0.9743589743589743 || Mean: 0.9455420695084561 || Median: 0.9522222222222223 || Standard deviation: 0.025790346212361093
+Model number: 5 || Model: gradient_boosting || Min: 0.9361702127659575 || Max: 1.0 || Mean: 0.9603732033423753 || Median: 0.9615384615384615 || Standard deviation: 0.017568035925688247
+Model number: 6 || Model: mlp || Min: 0.9387755102040817 || Max: 1.0 || Mean: 0.9757765211546724 || Median: 0.9773755656108597 || Standard deviation: 0.021014298812730037

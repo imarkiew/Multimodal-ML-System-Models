@@ -6,9 +6,11 @@ from xgboost import XGBClassifier
 from sklearn.neural_network import MLPClassifier
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_validate
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score, make_scorer
 import pickle
 import numpy as np
 
@@ -17,6 +19,8 @@ PATH_TO_DATA = '../data/data.csv'
 RANDOM_STATE = 42
 SAVE_STATS_PATH = './stats'
 SAVE_MODEL_PATH = '../model'
+CV = 10
+TRAIN_SIZE = 0.8
 
 
 def labels_to_y_bin(y):
@@ -28,10 +32,7 @@ df = pd.read_csv(PATH_TO_DATA, sep=',')
 # preprocess data
 y = df['diagnosis'].values
 df = df.drop(['id', 'diagnosis'], axis=1)
-df = df.fillna(value=df.mean())
-# df_norm = (df - df.mean())/df.std(ddof=0)
-scaler = StandardScaler()
-X = scaler.fit_transform(df)
+X = df.fillna(value=df.mean()).values
 
 # naive Bayes
 naive_bayes = GaussianNB()
@@ -56,12 +57,13 @@ all_models = [naive_bayes, logistic_regression, support_vector_machine, random_f
 all_names = ['naive_bayes', 'logistic_regression', 'support_vector_machine', 'random_forest', 'gradient_boosting', 'mlp']
 scoring = {'accuracy': 'accuracy', 'f1_score': 'f1'}
 
-np.random.seed(RANDOM_STATE)
+kf = KFold(n_splits=CV, random_state=RANDOM_STATE, shuffle=True)
 cv_results = []
 
-for i in range(len(all_models)):
-    cv_results.append(cross_validate(all_models[i], X, y_bin, cv=10, scoring=scoring, return_train_score=False))
-
+for model in all_models:
+    classifier_pipeline = make_pipeline(StandardScaler(), model)
+    cv_results.append(cross_validate(classifier_pipeline, X, y_bin, cv=kf, scoring={'accuracy': make_scorer(accuracy_score),
+                                                                                    'f1_score': make_scorer(f1_score)}))
 test_accuracy_templates = []
 for i in range(len(cv_results)):
     results = cv_results[i]['test_accuracy']*100
@@ -90,11 +92,15 @@ with open(SAVE_STATS_PATH + '/test_f1_score', 'w') as test_f1_score_file:
 print()
 model_to_save = int(input('Select the model to save by entering its number '))
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=RANDOM_STATE)
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=TRAIN_SIZE, random_state=RANDOM_STATE)
 y_train_bin = labels_to_y_bin(y_train)
 y_test_bin = labels_to_y_bin(y_test)
-final_model = all_models[model_to_save - 1].fit(X_train, y_train_bin)
-final_model_test = final_model.predict(X_test)
+
+scaler = StandardScaler()
+X_train_norm = scaler.fit_transform(X_train)
+X_test_norm = scaler.transform(X_test)
+final_model = all_models[model_to_save - 1].fit(X_train_norm, y_train_bin)
+final_model_test = final_model.predict(X_test_norm)
 
 final_accuracy = 100*accuracy_score(y_test_bin, final_model_test)
 print('Final model accuracy on test set: {}'.format(final_accuracy))
