@@ -44,7 +44,7 @@ plt.title('Współczynnik szybkości uczenia')
 plt.xlabel('Epoka')
 plt.ylabel('Wartość')
 plt.grid()
-f.savefig('./pdfs/lrNoAff.pdf', bbox_inches='tight')
+f.savefig('./pdfs/lr.pdf', bbox_inches='tight')
 plt.show()
 
 train_loss_aff = pd.read_csv('./aff/epoch_loss.csv', delimiter=',')
