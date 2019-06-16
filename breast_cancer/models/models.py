@@ -36,19 +36,14 @@ X = df.fillna(value=df.mean()).values
 
 # naive Bayes
 naive_bayes = GaussianNB()
-
 # logistic regression
 logistic_regression = LogisticRegression(solver='lbfgs', max_iter=2000, random_state=RANDOM_STATE)
-
 # svm
 support_vector_machine = svm.SVC(kernel='rbf', C=1.0, gamma='scale', random_state=RANDOM_STATE)
-
 # random forest
 random_forest = RandomForestClassifier(n_estimators=100, max_depth=4, criterion='entropy', random_state=RANDOM_STATE)
-
 # xgboost
-gradient_boosting = XGBClassifier(max_depth=4, n_estimators=100, learning_rate=0.1, random_state=RANDOM_STATE)
-
+gradient_boosting = XGBClassifier(n_estimators=100, max_depth=4, learning_rate=0.1, random_state=RANDOM_STATE)
 # MLP
 mlp = MLPClassifier(hidden_layer_sizes=10, max_iter=2000, random_state=RANDOM_STATE)
 
@@ -92,7 +87,7 @@ with open(SAVE_STATS_PATH + '/test_f1_score', 'w') as test_f1_score_file:
 print()
 model_to_save = int(input('Select the model to save by entering its number '))
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=TRAIN_SIZE, random_state=RANDOM_STATE)
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=TRAIN_SIZE, shuffle=True, random_state=RANDOM_STATE)
 y_train_bin = labels_to_y_bin(y_train)
 y_test_bin = labels_to_y_bin(y_test)
 
