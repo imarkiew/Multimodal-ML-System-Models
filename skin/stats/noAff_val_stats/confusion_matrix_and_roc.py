@@ -18,6 +18,8 @@ confusion_matrix_scaled = confusion_matrix_raw.astype('float') / confusion_matri
 
 f = plt.figure()
 sns.heatmap(confusion_matrix_scaled, xticklabels=classes, yticklabels=classes, annot=True)
+plt.ylabel('Prawdziwa klasa')
+plt.xlabel('Przewidziana klasa')
 f.savefig('./pdfs/confusionMatrixVal.pdf', bbox_inches='tight')
 plt.show()
 
